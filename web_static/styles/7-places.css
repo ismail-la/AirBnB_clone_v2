@@ -1,0 +1,27 @@
+.places {
+  width: 100%;
+}
+
+.places h1 {
+  font-size: 30px;
+  margin: 20px 0 0;
+}
+
+.places_card {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.places_card article {
+  border: 1px #ff5a5f solid;
+  width: 390px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.places article h2 {
+  font-size: 30px;
+}
