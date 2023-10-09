@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Fabric script (based on the file 2-do_deploy_web_static.py)
- that creates and distributes an archive to your web servers, using the function deploy:
+ that creates and distributes an archive to your web servers,
+ using the function deploy:
 """
 
 from datetime import datetime
@@ -16,17 +17,17 @@ def do_pack():
     """
     date = datetime.utcnow()
     file = "versions/web_static_{}{}{}{}{}{}.tgz".format(date.year,
-															date.month,
-															date.day,
-															date.hour,
-															date.minute,
-															date.second)
+                                                         date.month,
+                                                         date.day,
+                                                         date.hour,
+                                                         date.minute,
+                                                         date.second)
     if os.path.isdir("versions") is False:
         if local("mkdir -p versions").failed is True:
             return None
-    if local("tar -cvzf {} web_static".format(file)).failed is True:
+    if local("tar -cvzf {} web_static".format(file_name)).failed is True:
         return None
-    return file
+    return file_name
 
 
 def do_deploy(archive_path):
