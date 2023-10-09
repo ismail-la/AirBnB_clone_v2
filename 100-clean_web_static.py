@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-# FFabric script (based on the file 3-deploy_web_static.py) that deletes
-#  out-of-date archives,using the function do_clean.
-
+# Fabfile to delete out-of-date archives.
 import os
 from fabric.api import *
 
@@ -9,18 +7,17 @@ env.hosts = ['54.160.117.237', '100.25.31.84']  # <IP web-01>, <IP web-02>
 
 
 def do_clean(number=0):
+    """Delete out-of-date archives.
     """
-    Delete out-of-date archives.
-    """
-    nbr = 1 if int(number) == 0 else int(nbr)
+    number = 1 if int(number) == 0 else int(number)
 
-    archive = sorted(os.listdir("versions"))
-    [archive.pop() for i in range(nbr)]
+    archives = sorted(os.listdir("versions"))
+    [archives.pop() for i in range(number)]
     with lcd("versions"):
-        [local("rm ./{}".format(a)) for a in archive]
+        [local("rm ./{}".format(a)) for a in archives]
 
     with cd("/data/web_static/releases"):
-        archive = run("ls -tr").split()
-        archive = [a for a in archives if "web_static_" in a]
-        [archive.pop() for i in range(nbr)]
-        [run("rm -rf ./{}".format(a)) for a in archive]
+        archives = run("ls -tr").split()
+        archives = [a for a in archives if "web_static_" in a]
+        [archives.pop() for i in range(number)]
+        [run("rm -rf ./{}".format(a)) for a in archives]
