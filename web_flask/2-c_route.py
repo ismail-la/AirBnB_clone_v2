@@ -23,7 +23,7 @@ app = Flask(__name__)
 # -strict_slashes=False: option means the route is defined without trailing
 # slashes and Flask redirects all URLs with trailing slashes to this route.
 @app.route('/', strict_slashes=False)
-def show_hello_HBNB():
+def Disp_hello_HBNB():
     """This function is triggered when the user visits the root URL"""
     return 'Hello HBNB!'
 
@@ -31,7 +31,7 @@ def show_hello_HBNB():
 # -This decorator tells Flask to trigger the show_HBNB() function when
 #  the ‘/hbnb’ URL is visited.
 @app.route('/hbnb', strict_slashes=False)
-def show_HBNB():
+def Disp_HBNB():
     """This function is triggered when the user visits the ‘/hbnb’ URL"""
     return 'HBNB'
 
@@ -41,7 +41,7 @@ def show_HBNB():
 # -Returns a string that starts with 'C ’ and ends with the <text> from
 #   the URL, with underscores replaced by spaces.
 @app.route('/c/<text>', strict_slashes=False)
-def show_C(text):
+def Disp_C(text):
     """This function is triggered when the user visits the ‘/c/<text>’ URL"""
     return 'C {}'.format(text.replace('_', ' '))
 

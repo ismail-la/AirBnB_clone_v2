@@ -26,7 +26,7 @@ app = Flask(__name__)
 @app.route('/', strict_slashes=False)
 # -This function is triggered when the user visits the root URL.
 # It returns the string ‘Hello HBNB!’.
-def hello_HBNB():
+def Disp_hello_HBNB():
     """Display 'Hello HBNB!.'"""
     return 'Hello HBNB!'
 
