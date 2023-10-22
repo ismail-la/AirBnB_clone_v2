@@ -16,8 +16,8 @@
 - You must use the option strict_slashes=False in your route definition
 """
 from models import storage
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template
+from models.state import State
 
 # Creates an instance of a Flask web application.
 app = Flask(__name__)
@@ -27,13 +27,13 @@ app = Flask(__name__)
 # <your-domain>/states_list in their web browser, the function defined
 # directly below this line will be executed.
 @app.route("/states_list", strict_slashes=False)
-def states_list():
+def Disp_states():
     """This function is executed when a user navigates to the /states_list
     route. It retrieves all “State” objects from the storage, and then uses
     the render_template function to generate an HTML page that lists all of
     these states.
     """
-    states = storage.all("State")
+    states = storage.all()
     return render_template("7-states_list.html", states=states)
 
 
